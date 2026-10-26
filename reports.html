@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports | Student Grade Tracker</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="brand" href="index.html">Student Grade Tracker</a>
+      <ul class="nav-links">
+        <li><a class="nav-link" href="index.html">Dashboard</a></li>
+        <li><a class="nav-link" href="students.html">Students</a></li>
+        <li><a class="nav-link active" href="reports.html" aria-current="page">Reports</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container main-content">
+    <h1 class="page-title">Reports</h1>
+
+    <div class="card report-card" id="reportCard">
+      <div class="report-header">
+        <div>
+          <div class="report-label">Student Report Card</div>
+          <div class="report-student" id="reportStudentName">&ndash;</div>
+          <div class="report-meta" id="reportStudentMeta">&ndash;</div>
+        </div>
+        <div id="reportGradeBadge"><span class="badge" style="background:#94a3b8">&ndash;</span></div>
+      </div>
+
+      <div class="form-group">
+        <label for="studentSelect">Select Student</label>
+        <select id="studentSelect" aria-label="Select student for report"></select>
+      </div>
+
+      <div class="chart-container report-chart-container">
+        <canvas id="reportChart" aria-label="Subject marks chart" role="img"></canvas>
+      </div>
+
+      <div class="report-rows">
+        <div class="report-row"><span>Mathematics</span><strong id="reportSubject1">0</strong></div>
+        <div class="report-row"><span>Physics</span><strong id="reportSubject2">0</strong></div>
+        <div class="report-row"><span>Chemistry</span><strong id="reportSubject3">0</strong></div>
+        <div class="report-row"><span>Biology</span><strong id="reportSubject4">0</strong></div>
+        <div class="report-row"><span>Computer Science</span><strong id="reportSubject5">0</strong></div>
+        <div class="report-row report-total"><span>Total (out of 500)</span><strong id="reportTotal">0</strong></div>
+        <div class="report-row"><span>Percentage</span><strong id="reportPercentage">0%</strong></div>
+      </div>
+
+      <div class="report-remarks">
+        <strong>Remarks:</strong>
+        <span id="reportRemarks">&ndash;</span>
+      </div>
+    </div>
+
+    <div class="card no-print" style="margin-top: 22px;">
+      <h2>Class Ranking</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+              <th>Roll No</th>
+              <th>Semester</th>
+              <th>Percentage</th>
+              <th>Grade</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="rankingBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card no-print" style="margin-top: 22px; display: flex; gap: 10px; flex-wrap: wrap;">
+      <button type="button" class="btn btn-primary" id="exportCsvBtn">Export CSV</button>
+      <button type="button" class="btn btn-outline" id="printReportBtn">Print Report Card</button>
+      <button type="button" class="btn btn-danger" id="resetDataBtn">Reset to Sample Data</button>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Student Grade Tracker &mdash; All data is stored locally in your browser.</p>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/reports.js"></script>
+</body>
+</html>
